@@ -1,9 +1,9 @@
 import { CaseStudy, LeadItem, SolutionItem } from '../types';
 import { CASE_STUDIES, SOLUTIONS_DATA } from '../data/content';
 
-const CASES_STORAGE_KEY = 'sg_solutions_projects_v2';
-const LEADS_STORAGE_KEY = 'sg_solutions_leads_v2';
-const SOLUTIONS_STORAGE_KEY = 'sg_solutions_offerings_v2';
+const CASES_STORAGE_KEY = 'sg_solutions_projects_v3';
+const LEADS_STORAGE_KEY = 'sg_solutions_leads_v3';
+const SOLUTIONS_STORAGE_KEY = 'sg_solutions_offerings_v3';
 
 const INITIAL_SAMPLE_LEADS: LeadItem[] = [
   {
@@ -46,7 +46,16 @@ export function getStoredCases(): CaseStudy[] {
       localStorage.setItem(CASES_STORAGE_KEY, JSON.stringify(initialized));
       return initialized;
     }
-    return JSON.parse(raw);
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) throw new Error('Formato inválido');
+    // Sanitize: guarantee every case has the fields the UI depends on,
+    // in case old/incompatible data got saved previously.
+    return parsed.map((c: Partial<CaseStudy>) => ({
+      ...c,
+      metric: c.metric && typeof c.metric.value === 'string'
+        ? c.metric
+        : { value: '✓', label: 'Resultado validado' }
+    })) as CaseStudy[];
   } catch {
     return CASE_STUDIES.map(c => ({ ...c, isVisible: true }));
   }
