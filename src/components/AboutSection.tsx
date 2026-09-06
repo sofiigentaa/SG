@@ -27,7 +27,7 @@ export const AboutSection: React.FC = () => {
                 Sofi Genta
               </h3>
               <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-0.5">
-                Testing, Automatización & Soluciones Digitales
+                Automatización & Soluciones Digitales
               </p>
             </div>
 
