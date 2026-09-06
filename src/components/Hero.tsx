@@ -162,7 +162,7 @@ export const Hero: React.FC<HeroProps> = ({ onSubmitContact, formPreset = '' }) 
               {/* Quick selector chips */}
               <div className="space-y-1.5 text-left">
                 <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
-                  ¿Cuál es tu situación? (opcional)
+                  ¿Cuál es tu situación?
                 </label>
                 <div className="flex flex-col gap-1.5">
                   {chips.map((chip, idx) => (
