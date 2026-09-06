@@ -134,7 +134,7 @@ export const ValueImpactSection: React.FC<ValueImpactSectionProps> = ({ onOpenCo
 
           <button
             type="button"
-            onClick={() => onOpenContactWithPreset('Quiero ver cómo frenar la pérdida de tiempo y plata en mi negocio con una solución accesible en pesos.')}
+            onClick={() => onOpenContactWithPreset('')}
             className="shrink-0 bg-blue-600 hover:bg-blue-500 text-white font-extrabold py-4 px-8 rounded-xl shadow-lg shadow-blue-500/30 transition-all flex items-center gap-2 uppercase tracking-wider text-xs cursor-pointer active:scale-98"
           >
             <span>Quiero ganar tiempo y plata</span>
