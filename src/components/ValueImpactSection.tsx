@@ -1,5 +1,6 @@
 import React from 'react';
-import { TrendingUp, Clock, AlertTriangle, CheckCircle2, ArrowRight, ShieldCheck, DollarSign } from 'lucide-react';
+import { motion } from 'motion/react';
+import { TrendingUp, Clock, AlertTriangle, CheckCircle2, ArrowRight, ShieldCheck } from 'lucide-react';
 
 interface ValueImpactSectionProps {
   onOpenContactWithPreset: (preset: string) => void;
@@ -11,9 +12,15 @@ export const ValueImpactSection: React.FC<ValueImpactSectionProps> = ({ onOpenCo
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100 text-amber-900 text-xs font-bold tracking-wider uppercase border border-amber-200">
-            <AlertTriangle className="w-4 h-4 text-amber-700" />
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-3xl mx-auto text-center space-y-4 mb-16"
+        >
+          <div className="inline-flex items-center gap-2 text-sm font-medium text-amber-700">
+            <AlertTriangle className="w-4 h-4" />
             <span>La cuenta que pocos hacen</span>
           </div>
 
@@ -25,13 +32,19 @@ export const ValueImpactSection: React.FC<ValueImpactSectionProps> = ({ onOpenCo
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
             Muchos negocios conviven con procesos lentos o fallas porque creen que no resolverlo &ldquo;no cuesta nada&rdquo;. La realidad de los números es otra:
           </p>
-        </div>
+        </motion.div>
 
         {/* 3 High-Impact Reality Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           
           {/* Card 1: Horas de trabajo mecánico */}
-          <div className="rounded-2xl bg-slate-50 border border-slate-200/90 p-7 flex flex-col justify-between shadow-xs hover:border-slate-300 transition-all">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="rounded-2xl bg-slate-50 border border-slate-200/90 p-7 flex flex-col justify-between shadow-xs hover:border-slate-300 hover:-translate-y-1 transition-all"
+          >
             <div className="space-y-4">
               <div className="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold">
                 <Clock className="w-6 h-6 text-amber-600" />
@@ -56,10 +69,16 @@ export const ValueImpactSection: React.FC<ValueImpactSectionProps> = ({ onOpenCo
                 ⚠️ Equivale a medio sueldo mensual tirado en tareas que una máquina hace sola.
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card 2: Clientes y ventas perdidas */}
-          <div className="rounded-2xl bg-slate-50 border border-slate-200/90 p-7 flex flex-col justify-between shadow-xs hover:border-slate-300 transition-all">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="rounded-2xl bg-slate-50 border border-slate-200/90 p-7 flex flex-col justify-between shadow-xs hover:border-slate-300 hover:-translate-y-1 transition-all"
+          >
             <div className="space-y-4">
               <div className="w-12 h-12 rounded-xl bg-red-100 text-red-800 flex items-center justify-center font-bold">
                 <AlertTriangle className="w-6 h-6 text-red-600" />
@@ -84,10 +103,16 @@ export const ValueImpactSection: React.FC<ValueImpactSectionProps> = ({ onOpenCo
                 ⚠️ Con perder 2 ventas al mes ya estás perdiendo cientos de miles de pesos.
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card 3: La solución accesible */}
-          <div className="rounded-2xl bg-gradient-to-b from-blue-50 to-emerald-50/60 border-2 border-blue-300 p-7 flex flex-col justify-between shadow-md relative overflow-hidden">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="rounded-2xl bg-gradient-to-b from-blue-50 to-emerald-50/60 border-2 border-blue-300 p-7 flex flex-col justify-between shadow-md relative overflow-hidden"
+          >
             <div className="space-y-4 relative z-10">
               <div className="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold shadow-md shadow-emerald-200">
                 <TrendingUp className="w-6 h-6" />
@@ -113,12 +138,18 @@ export const ValueImpactSection: React.FC<ValueImpactSectionProps> = ({ onOpenCo
                 <span>A partir del mes 2, es ganancia limpia de plata y tiempo.</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
         </div>
 
         {/* Revelatory Bottom Banner with direct CTA */}
-        <div className="relative overflow-hidden rounded-3xl shadow-xl flex flex-col lg:flex-row items-center justify-between gap-6 p-8 sm:p-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="relative overflow-hidden rounded-3xl shadow-xl flex flex-col lg:flex-row items-center justify-between gap-6 p-8 sm:p-10"
+        >
           <img
             src="https://images.unsplash.com/photo-1491975474562-1f4e30bc9468?auto=format&fit=crop&w=1600&q=80"
             alt=""
@@ -139,15 +170,17 @@ export const ValueImpactSection: React.FC<ValueImpactSectionProps> = ({ onOpenCo
             </p>
           </div>
 
-          <button
+          <motion.button
             type="button"
             onClick={() => onOpenContactWithPreset('')}
-            className="relative shrink-0 bg-blue-600 hover:bg-blue-500 text-white font-extrabold py-4 px-8 rounded-xl shadow-lg shadow-blue-500/30 transition-all flex items-center gap-2 uppercase tracking-wider text-xs cursor-pointer active:scale-98"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="relative shrink-0 bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-8 rounded-xl shadow-lg shadow-blue-500/30 transition-colors flex items-center gap-2 text-sm cursor-pointer"
           >
             <span>Quiero ganar tiempo y plata</span>
             <ArrowRight className="w-4 h-4" />
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
 
       </div>
     </section>
