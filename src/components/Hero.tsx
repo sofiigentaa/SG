@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { AlertCircle, Clock, ArrowRight, ShieldCheck, CheckCircle2, Sparkles, Send, DollarSign } from 'lucide-react';
+import { motion } from 'motion/react';
+import { AlertCircle, Clock, ArrowRight, ShieldCheck, CheckCircle2, Sparkles, Send } from 'lucide-react';
 import { ContactFormData } from '../types';
 
 interface HeroProps {
@@ -44,25 +45,25 @@ export const Hero: React.FC<HeroProps> = ({ onSubmitContact, formPreset = '' }) 
   };
 
   return (
-    <section className="relative overflow-hidden pt-8 pb-16 lg:pt-14 lg:pb-24 border-b border-slate-200/80 bg-slate-50">
-      {/* Background subtle grid pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
+    <section className="relative overflow-hidden pt-10 pb-16 lg:pt-16 lg:pb-24 bg-slate-50">
+      {/* Soft ambient gradient glow, replaces the old hard grid pattern */}
+      <div className="absolute -top-32 -left-24 w-[36rem] h-[36rem] rounded-full bg-blue-200/40 blur-3xl pointer-events-none" />
+      <div className="absolute top-40 -right-24 w-[28rem] h-[28rem] rounded-full bg-emerald-200/30 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
           {/* Left Column: Value Proposition & Relief */}
-          <div className="lg:col-span-7 flex flex-col gap-6 text-left">
-            {/* Pill Badges */}
-            <div className="flex flex-wrap items-center gap-2">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100 text-blue-900 text-xs font-bold tracking-wider uppercase border border-blue-200/80 shadow-xs">
-                <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-                <span>Automatización & Soluciones Digitales</span>
-              </div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 text-xs font-extrabold tracking-wider uppercase border border-emerald-200 shadow-xs">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" />
-                <span>No necesitás saber de código para empezar</span>
-              </div>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 flex flex-col gap-6 text-left"
+          >
+            {/* Single soft eyebrow, not a wall of badges */}
+            <div className="inline-flex w-fit items-center gap-2 text-sm font-medium text-blue-700">
+              <Sparkles className="w-4 h-4" />
+              <span>Automatización & soluciones digitales, sin código de tu parte</span>
             </div>
 
             {/* Main Headline */}
@@ -132,18 +133,23 @@ export const Hero: React.FC<HeroProps> = ({ onSubmitContact, formPreset = '' }) 
                 <ShieldCheck className="w-4 h-4 text-blue-600" />
                 <span>Venta garantizada: si no funciona, no pagás</span>
               </div>
-              <a
+              
                 href="#impacto"
                 className="inline-flex items-center gap-1 text-amber-800 hover:text-amber-900 font-bold bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200"
               >
                 <span>Descubrí cuánta plata y tiempo estás perdiendo ↓</span>
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: High Conversion Action Card */}
-          <div className="lg:col-span-5">
-            <div className="bg-white p-7 sm:p-8 rounded-2xl shadow-xl border border-slate-200/80 flex flex-col gap-5 relative">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5"
+          >
+            <div className="bg-white p-7 sm:p-8 rounded-3xl shadow-xl shadow-slate-900/5 border border-slate-100 flex flex-col gap-5 relative transition-shadow hover:shadow-2xl hover:shadow-slate-900/10">
               <div className="space-y-1 text-left">
                 <div className="flex items-center justify-between">
                   <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight">
@@ -166,18 +172,19 @@ export const Hero: React.FC<HeroProps> = ({ onSubmitContact, formPreset = '' }) 
                 </label>
                 <div className="flex flex-col gap-1.5">
                   {chips.map((chip, idx) => (
-                    <button
+                    <motion.button
                       key={idx}
                       type="button"
                       onClick={() => handleChipClick(chip)}
-                      className={`text-left text-xs px-3 py-2 rounded-lg border transition-all cursor-pointer ${
+                      whileTap={{ scale: 0.98 }}
+                      className={`text-left text-xs px-3 py-2 rounded-lg border transition-all duration-200 cursor-pointer ${
                         selectedChip === chip.label
                           ? 'bg-blue-50 border-blue-400 text-blue-900 font-semibold shadow-xs'
-                          : 'bg-slate-50/80 border-slate-200 text-slate-600 hover:bg-slate-100/80 hover:text-slate-900'
+                          : 'bg-slate-50/80 border-slate-200 text-slate-600 hover:bg-slate-100/80 hover:text-slate-900 hover:border-slate-300'
                       }`}
                     >
                       {chip.label}
-                    </button>
+                    </motion.button>
                   ))}
                 </div>
               </div>
@@ -229,22 +236,24 @@ export const Hero: React.FC<HeroProps> = ({ onSubmitContact, formPreset = '' }) 
                   />
                 </div>
 
-                <button
+                <motion.button
                   id="hero-submit-btn"
                   type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-6 rounded-lg shadow-lg shadow-blue-200 transition-all flex items-center justify-center gap-2 uppercase tracking-wider text-sm cursor-pointer hover:shadow-xl active:scale-[0.99]"
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3.5 px-6 rounded-xl shadow-lg shadow-blue-600/25 transition-colors flex items-center justify-center gap-2 text-sm cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
                   <span>Enviar mi consulta</span>
                   <ArrowRight className="w-4 h-4" />
-                </button>
+                </motion.button>
 
                 <p className="text-[11px] text-center text-slate-500 font-medium">
                   🔒 Te responderé personalmente para entender tu caso. Sin compromiso ni costos ocultos.
                 </p>
               </form>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>
