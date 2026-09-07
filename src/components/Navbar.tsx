@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageSquare, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 
 interface NavbarProps {
   onOpenContact: (preset?: string) => void;
@@ -64,19 +64,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
               Sobre mí
             </a>
           </nav>
-
-          {/* Right actions: CTA */}
-          <div className="flex items-center gap-3">
-            <button
-              id="nav-cta-button"
-              onClick={() => onOpenContact()}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold shadow-md shadow-blue-200 transition-all hover:shadow-lg active:scale-98 cursor-pointer"
-            >
-              <MessageSquare className="w-4 h-4" />
-              <span>Contame tu problema</span>
-              <ArrowRight className="w-4 h-4 hidden sm:inline" />
-            </button>
-          </div>
 
         </div>
       </header>
