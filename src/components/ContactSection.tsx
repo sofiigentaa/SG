@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { ContactFormData } from '../types';
 import { Send, CheckCircle2, MessageCircle, ShieldCheck, ArrowRight, Copy, Check } from 'lucide-react';
 
@@ -65,9 +66,15 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="text-center space-y-4 mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-900/80 text-blue-300 text-xs font-bold tracking-wider uppercase border border-blue-700">
-            <MessageCircle className="w-3.5 h-3.5 text-blue-400" />
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center space-y-4 mb-12"
+        >
+          <div className="inline-flex items-center gap-2 text-sm font-medium text-blue-300">
+            <MessageCircle className="w-4 h-4" />
             <span>Contacto directo</span>
           </div>
 
@@ -79,12 +86,25 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           <p className="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-normal">
             Escribime abajo. Te leo, analizo tu situación con detenimiento y te respondo con una mirada honesta sobre cómo podemos encararlo.
           </p>
-        </div>
+        </motion.div>
 
         {/* Card Form */}
-        <div className="bg-white text-slate-900 rounded-3xl p-8 sm:p-10 shadow-2xl border border-slate-200">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="bg-white text-slate-900 rounded-3xl p-8 sm:p-10 shadow-2xl border border-slate-200"
+        >
+          <AnimatePresence mode="wait">
           {submitted ? (
-            <div className="py-10 text-center space-y-6">
+            <motion.div
+              key="success"
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="py-10 text-center space-y-6"
+            >
               <div className="w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto shadow-md">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
@@ -133,9 +153,17 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               >
                 Enviar otra consulta
               </button>
-            </div>
+            </motion.div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <motion.form
+              key="form"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onSubmit={handleSubmit}
+              className="space-y-6"
+            >
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-1.5 text-left">
@@ -189,15 +217,17 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 />
               </div>
 
-              <button
+              <motion.button
                 id="contact-submit-btn"
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-extrabold py-4 px-6 rounded-xl shadow-xl shadow-blue-200 hover:shadow-2xl transition-all flex items-center justify-center gap-2 uppercase tracking-wider text-sm cursor-pointer active:scale-[0.99]"
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-xl shadow-xl shadow-blue-200 hover:shadow-2xl transition-shadow flex items-center justify-center gap-2 text-sm cursor-pointer"
               >
                 <Send className="w-4 h-4" />
                 <span>Contame qué está pasando</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </motion.button>
 
               <div className="pt-2 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
                 <div className="flex items-center gap-1.5">
@@ -209,9 +239,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 </div>
               </div>
 
-            </form>
+            </motion.form>
           )}
-        </div>
+          </AnimatePresence>
+        </motion.div>
 
       </div>
     </section>
