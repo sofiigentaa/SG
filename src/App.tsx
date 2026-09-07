@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { AutomationShowcaseSection } from './components/AutomationShowcaseSection';
+import { WhatsAppFloatingButton } from './components/WhatsAppFloatingButton';
 import { ProblemsSection } from './components/ProblemsSection';
 import { ValueImpactSection } from './components/ValueImpactSection';
 import { ReliefSection } from './components/ReliefSection';
@@ -281,6 +282,9 @@ export default function App() {
 
       {/* Footer with Admin Trigger */}
       <Footer />
+
+      {/* Floating WhatsApp button, visible on every page */}
+      <WhatsAppFloatingButton />
 
       {/* Admin Panel Modal for Sofi */}
       <AdminPanel
