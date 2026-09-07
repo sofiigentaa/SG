@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { AlertCircle, Clock, ArrowRight, ShieldCheck, CheckCircle2, Sparkles, Send } from 'lucide-react';
+import { AlertCircle, Clock, ArrowRight, ShieldCheck, CheckCircle2, Send } from 'lucide-react';
 import { ContactFormData } from '../types';
 
 interface HeroProps {
@@ -52,7 +52,7 @@ export const Hero: React.FC<HeroProps> = ({ onSubmitContact, formPreset = '' }) 
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-
+          
           {/* Left Column: Value Proposition & Relief */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -60,12 +60,6 @@ export const Hero: React.FC<HeroProps> = ({ onSubmitContact, formPreset = '' }) 
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 flex flex-col gap-6 text-left"
           >
-            {/* Single soft eyebrow, not a wall of badges */}
-            <div className="inline-flex w-fit items-center gap-2 text-sm font-medium text-blue-700">
-              <Sparkles className="w-4 h-4" />
-              <span>Automatización & soluciones digitales, sin código de tu parte</span>
-            </div>
-
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold leading-[1.15] tracking-tight text-slate-900">
               ¿Tu sistema falla o tu equipo pierde horas en tareas repetitivas?
@@ -78,7 +72,13 @@ export const Hero: React.FC<HeroProps> = ({ onSubmitContact, formPreset = '' }) 
 
             {/* Two Core Pain Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-1">
-              <div className="flex gap-3.5 items-start p-4 bg-white rounded-xl border border-slate-200 shadow-xs hover:border-slate-300 transition-colors">
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="flex gap-3.5 items-start p-4 bg-white rounded-xl border border-slate-200 shadow-xs hover:border-slate-300 hover:-translate-y-0.5 transition-all"
+              >
                 <div className="bg-red-50 p-2.5 rounded-lg border border-red-100 shrink-0">
                   <AlertCircle className="w-5 h-5 text-red-600" />
                 </div>
@@ -88,9 +88,15 @@ export const Hero: React.FC<HeroProps> = ({ onSubmitContact, formPreset = '' }) 
                     Reviso tus aplicaciones y botones de pago para que cobres sin fallas ni clientes que se van frustrados.
                   </p>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="flex gap-3.5 items-start p-4 bg-white rounded-xl border border-slate-200 shadow-xs hover:border-slate-300 transition-colors">
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="flex gap-3.5 items-start p-4 bg-white rounded-xl border border-slate-200 shadow-xs hover:border-slate-300 hover:-translate-y-0.5 transition-all"
+              >
                 <div className="bg-amber-50 p-2.5 rounded-lg border border-amber-100 shrink-0">
                   <Clock className="w-5 h-5 text-amber-600" />
                 </div>
@@ -100,27 +106,7 @@ export const Hero: React.FC<HeroProps> = ({ onSubmitContact, formPreset = '' }) 
                     Automatizo tus rutinas de WhatsApp y Excel para que recuperes entre 10 y 20 horas por semana.
                   </p>
                 </div>
-              </div>
-            </div>
-
-            {/* Social / Human Proof Row */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
-              <div className="flex items-center gap-3">
-                <div className="flex -space-x-2.5">
-                  <div className="w-9 h-9 rounded-full border-2 border-white bg-slate-200 text-slate-700 flex items-center justify-center text-xs font-bold shadow-xs">
-                    MF
-                  </div>
-                  <div className="w-9 h-9 rounded-full border-2 border-white bg-blue-600 text-white flex items-center justify-center text-xs font-bold shadow-xs">
-                    SG
-                  </div>
-                  <div className="w-9 h-9 rounded-full border-2 border-white bg-emerald-100 text-emerald-800 flex items-center justify-center text-xs font-bold shadow-xs">
-                    ✓
-                  </div>
-                </div>
-                <p className="text-sm text-slate-600 italic">
-                  &ldquo;Sofi entendió mi negocio enseguida y me ahorró horas de trabajo con una solución simple.&rdquo;
-                </p>
-              </div>
+              </motion.div>
             </div>
 
             {/* Micro guarantees */}
@@ -137,7 +123,7 @@ export const Hero: React.FC<HeroProps> = ({ onSubmitContact, formPreset = '' }) 
                 href="#impacto"
                 className="inline-flex items-center gap-1 text-amber-800 hover:text-amber-900 font-bold bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200"
               >
-                <span>Descubrí cuánta plata y tiempo estás perdiendo &#8595;</span>
+                <span>Descubrí cuánta plata y tiempo estás perdiendo ↓</span>
               </a>
             </div>
           </motion.div>
