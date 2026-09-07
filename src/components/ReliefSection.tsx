@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle2, XCircle, Zap, ShieldCheck } from 'lucide-react';
+import { CheckCircle2, XCircle, Zap, ShieldCheck, Code2, DollarSign, Clock, Wrench, MessageCircle, TrendingUp, ThumbsUp } from 'lucide-react';
 
 export const ReliefSection: React.FC = () => {
   return (
@@ -36,19 +36,27 @@ export const ReliefSection: React.FC = () => {
               
               <ul className="space-y-4 text-slate-300 text-sm">
                 <li className="flex items-start gap-3">
-                  <span className="w-5 h-5 rounded-full bg-red-950/80 border border-red-800 text-red-400 font-bold flex items-center justify-center shrink-0 text-xs mt-0.5">✕</span>
+                  <span className="w-8 h-8 rounded-lg bg-red-950/80 border border-red-800 text-red-400 flex items-center justify-center shrink-0">
+                    <Code2 className="w-4 h-4" />
+                  </span>
                   <span><strong className="text-white">No necesitás saber de código</strong> ni términos de informática raros.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-5 h-5 rounded-full bg-red-950/80 border border-red-800 text-red-400 font-bold flex items-center justify-center shrink-0 text-xs mt-0.5">✕</span>
+                  <span className="w-8 h-8 rounded-lg bg-red-950/80 border border-red-800 text-red-400 flex items-center justify-center shrink-0">
+                    <DollarSign className="w-4 h-4" />
+                  </span>
                   <span><strong className="text-white">No necesitás presupuestos en dólares</strong> ni tarifas corporativas imposibles.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-5 h-5 rounded-full bg-red-950/80 border border-red-800 text-red-400 font-bold flex items-center justify-center shrink-0 text-xs mt-0.5">✕</span>
+                  <span className="w-8 h-8 rounded-lg bg-red-950/80 border border-red-800 text-red-400 flex items-center justify-center shrink-0">
+                    <Clock className="w-4 h-4" />
+                  </span>
                   <span><strong className="text-white">No necesitás perder semanas</strong> en reuniones interminables que no resuelven nada.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-5 h-5 rounded-full bg-red-950/80 border border-red-800 text-red-400 font-bold flex items-center justify-center shrink-0 text-xs mt-0.5">✕</span>
+                  <span className="w-8 h-8 rounded-lg bg-red-950/80 border border-red-800 text-red-400 flex items-center justify-center shrink-0">
+                    <Wrench className="w-4 h-4" />
+                  </span>
                   <span><strong className="text-white">No necesitás saber qué herramienta usar:</strong> ese análisis es 100% mi trabajo.</span>
                 </li>
               </ul>
@@ -69,19 +77,27 @@ export const ReliefSection: React.FC = () => {
 
               <ul className="space-y-4 text-slate-200 text-sm">
                 <li className="flex items-start gap-3">
-                  <span className="w-5 h-5 rounded-full bg-emerald-950/80 border border-emerald-700 text-emerald-400 font-bold flex items-center justify-center shrink-0 text-xs mt-0.5">✓</span>
+                  <span className="w-8 h-8 rounded-lg bg-emerald-950/80 border border-emerald-700 text-emerald-400 flex items-center justify-center shrink-0">
+                    <MessageCircle className="w-4 h-4" />
+                  </span>
                   <span><strong className="text-white">Contarme en tus palabras</strong> qué tarea te come tiempo o qué error te frena.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-5 h-5 rounded-full bg-emerald-950/80 border border-emerald-700 text-emerald-400 font-bold flex items-center justify-center shrink-0 text-xs mt-0.5">✓</span>
+                  <span className="w-8 h-8 rounded-lg bg-emerald-950/80 border border-emerald-700 text-emerald-400 flex items-center justify-center shrink-0">
+                    <TrendingUp className="w-4 h-4" />
+                  </span>
                   <span><strong className="text-white">Ganas de ganar plata y tiempo:</strong> automatizar para vender más y trabajar más relajado.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-5 h-5 rounded-full bg-emerald-950/80 border border-emerald-700 text-emerald-400 font-bold flex items-center justify-center shrink-0 text-xs mt-0.5">✓</span>
+                  <span className="w-8 h-8 rounded-lg bg-emerald-950/80 border border-emerald-700 text-emerald-400 flex items-center justify-center shrink-0">
+                    <DollarSign className="w-4 h-4" />
+                  </span>
                   <span><strong className="text-white">Precios accesibles en $ argentinos:</strong> acordes a la realidad de tu negocio y con presupuesto cerrado.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-5 h-5 rounded-full bg-emerald-950/80 border border-emerald-700 text-emerald-400 font-bold flex items-center justify-center shrink-0 text-xs mt-0.5">✓</span>
+                  <span className="w-8 h-8 rounded-lg bg-emerald-950/80 border border-emerald-700 text-emerald-400 flex items-center justify-center shrink-0">
+                    <ThumbsUp className="w-4 h-4" />
+                  </span>
                   <span><strong className="text-white">Garantía total:</strong> si no funciona como acordamos, no pagás un solo peso.</span>
                 </li>
               </ul>
