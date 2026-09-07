@@ -89,7 +89,7 @@ export const CasesSection: React.FC<CasesSectionProps> = ({ cases = CASE_STUDIES
                 {activeCase.title}
               </h3>
               {activeCase.repoUrl && (
-                
+                <a
                   href={activeCase.repoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
