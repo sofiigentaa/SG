@@ -86,49 +86,116 @@ export const SOLUTIONS_DATA: SolutionItem[] = [
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
-    id: 'case-ecommerce-checkout',
-    tag: 'Control de calidad & cobros seguros',
-    title: 'El miedo a perder ventas por fallas inadvertidas en la tienda online',
-    problem: 'Pérdida invisible de compras por fallas intermitentes al actualizar promociones.',
-    initialSituation: 'Una tienda online en Argentina actualizaba productos semanalmente, pero cada cambio obligaba a probar a mano el carrito y el botón de Mercado Pago. A veces, las fallas se descubrían cuando un cliente frustrado abandonaba la compra.',
-    analysis: 'El 80% de los errores ocurrían en los mismos 3 pasos del checkout. El chequeo manual tomaba más de 5 horas semanales y dejaba baches sin revisar.',
-    solution: 'Implementé un sistema de verificación automática que simula compras completas cada vez que se sube un cambio, validando cupones, cálculos de envío y pasarela de cobro.',
-    validation: 'Se probaron más de 40 combinaciones con tarjetas, promociones bancarias y celulares antes del lanzamiento.',
-    result: 'Cero ventas perdidas por errores técnicos, 6 horas semanales recuperadas y la seguridad de cobrar cada pedido sin interrupciones.',
+    id: 'case-agenda-medica',
+    tag: 'Gestión de turnos',
+    title: 'Agenda Médica & Turnos — Estética Láser Rosario',
+    problem: 'Coordinar turnos de tratamientos con duraciones distintas sin que se superpongan.',
+    initialSituation: 'Un centro de estética láser necesitaba una agenda propia: cada tratamiento tiene una duración diferente, y coordinarlos a mano o en una agenda genérica es fácil que termine en horarios pisados.',
+    analysis: 'El sistema tenía que conocer la duración real de cada tratamiento y bloquear automáticamente los horarios que ya estuvieran ocupados, sin depender de que alguien lo revise a ojo.',
+    solution: 'Desarrollé un sistema con duraciones parametrizadas por tratamiento, detección automática de solapamientos, impresión de la agenda diaria, plantillas de WhatsApp personalizadas para confirmar turnos y exportación a Excel/CSV.',
+    validation: 'Probado con turnos de distintas duraciones cargados en simultáneo para confirmar que el sistema bloquea cualquier horario que se pise con otro ya reservado.',
+    result: 'Una agenda diaria clara, con confirmaciones de turno por WhatsApp en un clic y sin posibilidad de cargar dos turnos que se superpongan.',
     metric: {
-      value: '100%',
-      label: 'de compras críticas monitoreadas automáticamente'
-    }
+      value: '0 turnos pisados',
+      label: 'la detección automática de solapamientos lo bloquea de raíz'
+    },
+    repoUrl: 'https://github.com/sofiigentaa/AgendaMedica'
   },
   {
-    id: 'case-data-sync',
-    tag: 'Automatización de procesos cotidianos',
-    title: 'La pesadilla de pasar pedidos de WhatsApp a planillas de cálculo a mano',
-    problem: '3 horas diarias desperdiciadas copiando datos y constantes errores de entrega por tipeo.',
-    initialSituation: 'Un negocio de venta mayorista y minorista recibía pedidos por WhatsApp y formulario. Dedicaban toda la mañana a copiar datos a un Excel, armar remitos a mano y mandar avisos uno por uno.',
-    analysis: 'El proceso era repetitivo y mecánico. Además del costo en horas, se perdían cerca de $120.000 mensuales por errores en pedidos mal anotados.',
-    solution: 'Creé un flujo automatizado que captura los datos del mensaje, valida los números, actualiza la planilla de stock y genera la orden lista para despachar en 5 segundos.',
-    validation: 'Se probó con pedidos con textos informales, audios transcriptos y faltantes de stock para asegurar robustez.',
-    result: 'De 3 horas diarias pasaron a 0 segundos de trabajo manual. Más de $400.000 mensuales ahorrados en tiempo de equipo y cero errores de despacho.',
+    id: 'case-planifica-estudia',
+    tag: 'Suite académica',
+    title: 'Planifica & Estudia — Asistente universitario',
+    problem: 'Organizar cursada, exámenes y estudio sin usar cinco apps distintas.',
+    initialSituation: 'Un estudiante universitario necesitaba centralizar la organización de su cursada en un solo lugar, en vez de repartirla entre calendario, apuntes sueltos y planillas.',
+    analysis: 'El foco estaba en cubrir todo el ciclo de estudio: planificar, repasar, practicar y llegar a un parcial con una nota estimada realista.',
+    solution: 'Construí una suite con sincronización a Google Calendar, generador de resúmenes y quizzes, simulador de parciales con escala de 1 a 10, fichas de emergencia de una página, un tutor con método Feynman y una calculadora de notas, más un modo de enfoque Pomodoro.',
+    validation: 'Probado generando resúmenes y quizzes sobre distintos materiales de estudio, y verificando que el cálculo de notas y el simulador de parciales dieran resultados consistentes.',
+    result: 'Toda la organización académica —calendario, resúmenes, repaso y cálculo de notas— en una sola herramienta.',
     metric: {
-      value: '15 hs / sem',
-      label: 'ahorradas para dedicarse a vender y atender clientes'
-    }
+      value: '6 herramientas',
+      label: 'integradas en una sola app de estudio'
+    },
+    repoUrl: 'https://github.com/sofiigentaa/Planifica-Estudia'
   },
   {
-    id: 'case-intermittent-bugs',
-    tag: 'Diagnóstico y corrección de fallas',
-    title: 'Fallas fantasmas en la plataforma que generaban quejas de clientes',
-    problem: 'Clientes que no podían descargar sus comprobantes o reportes de servicios.',
-    initialSituation: 'Una plataforma de servicios profesionales recibía quejas constantes porque al presionar "descargar comprobante" la pantalla quedaba en blanco. El equipo técnico anterior decía que "era problema de la conexión del usuario".',
-    analysis: 'Audité el sistema y detecté un conflicto de sincronización cuando se acumulaban más de 20 registros. Era una falla fácil de corregir una vez identificada.',
-    solution: 'Reparé la lógica de descarga, añadí manejo de errores claro y dejé pruebas automáticas para que nunca vuelva a repetirse.',
-    validation: 'Pruebas de estrés y validación con conexiones lentas y grandes volúmenes de datos.',
-    result: 'Quejas reducidas a cero en 48 horas y clientes satisfechos con la velocidad del servicio.',
+    id: 'case-candy-eventos',
+    tag: 'Gestión de eventos',
+    title: 'Candy Salón de Eventos — Gestión y seguimiento',
+    problem: 'Llevar el control de reservas, señas y saldos de cada evento sin perder el hilo.',
+    initialSituation: 'Un salón de eventos necesitaba dejar de depender de anotaciones sueltas para saber qué fecha estaba reservada, cuánto se había señado y cuánto saldo quedaba pendiente por cobrar.',
+    analysis: 'El punto crítico era tener, de un vistazo, el estado de cada evento: fecha, seña abonada y saldo restante en pesos argentinos, con recordatorios para no perder ningún pago.',
+    solution: 'Desarrollé un sistema de gestión y seguimiento de eventos con registro de fechas, señas abonadas, saldos en $ARS y recordatorios.',
+    validation: 'Probado cargando eventos con señas parciales y totales para confirmar que el saldo pendiente se calcula y se actualiza correctamente en cada caso.',
+    result: 'El salón puede ver de un vistazo qué eventos tiene reservados, qué se cobró y qué falta cobrar de cada uno.',
     metric: {
-      value: '-95%',
-      label: 'en reportes de problemas técnicos en ese flujo'
-    }
+      value: 'Seguimiento en $ARS',
+      label: 'de la seña y el saldo pendiente de cada evento'
+    },
+    repoUrl: 'https://github.com/sofiigentaa/CandySalonDeEventos'
+  },
+  {
+    id: 'case-sistema-kiosco',
+    tag: 'Punto de venta & stock',
+    title: 'Granja y Kiosco Don Ramón — Gestión integral',
+    problem: 'Vender rápido y controlar stock, vencimientos y caja sin perder margen.',
+    initialSituation: 'Un kiosco/almacén necesitaba vender ágil en el mostrador y, al mismo tiempo, tener controlado el stock, los productos por vencer y el cierre de caja diario.',
+    analysis: 'El sistema tenía que funcionar en tiempo real entre varios dispositivos: si algo se vende en la caja, el stock se tiene que actualizar al instante también en la tablet del depósito.',
+    solution: 'Construí un sistema de punto de venta (POS), control de inventario y vencimientos con liquidación automática, arqueo de caja, historial de ventas y reportes de márgenes, con sincronización en tiempo real entre dispositivos (Supabase).',
+    validation: 'Probado vendiendo desde dos dispositivos en simultáneo para confirmar que el stock se descuenta y se sincroniza correctamente en todos al instante.',
+    result: 'Ventas rápidas desde el navegador, sin instalar nada, con el stock y la caja siempre al día en todos los dispositivos conectados.',
+    metric: {
+      value: 'Tiempo real',
+      label: 'el stock se actualiza al instante en todos los dispositivos'
+    },
+    repoUrl: 'https://github.com/sofiigentaa/SistemaKiosco'
+  },
+  {
+    id: 'case-agenda-odontologica',
+    tag: 'Gestión de pacientes',
+    title: 'Consultorio Marie — Agenda odontológica',
+    problem: 'Centralizar los datos de cada paciente: obra social, contacto y seguimiento.',
+    initialSituation: 'Un consultorio odontológico necesitaba una ficha por paciente que centralizara la obra social, los datos de contacto y el seguimiento de llamados, en vez de tenerlo repartido entre agenda y WhatsApp.',
+    analysis: 'El foco estaba en el acceso rápido: desde la ficha del paciente, poder llamarlo, escribirle por WhatsApp o mandarle un correo sin buscar el número en otro lado.',
+    solution: 'Desarrollé un sistema de gestión integral de contactos con obra social, recordatorios de llamadas, adjuntos y accesos directos a WhatsApp, correo y compartir.',
+    validation: 'Probado cargando pacientes con distintas obras sociales y adjuntos para confirmar que la ficha y los accesos directos funcionan correctamente en cada caso.',
+    result: 'Toda la información de cada paciente —obra social, contacto y adjuntos— accesible desde una sola ficha, con contacto directo en un clic.',
+    metric: {
+      value: 'Todo en un lugar',
+      label: 'ficha, obra social, adjuntos y contacto directo del paciente'
+    },
+    repoUrl: 'https://github.com/sofiigentaa/AgendaOdontologica'
+  },
+  {
+    id: 'case-gestion-emprendedor',
+    tag: 'Control financiero',
+    title: 'Gestión de Ingresos y Gastos — para emprendedores',
+    problem: 'Entender en qué se va la plata del negocio sin armar una planilla a mano cada mes.',
+    initialSituation: 'Un emprendedor necesitaba ver con claridad sus ingresos y gastos del día a día, categorizados, sin depender de anotar todo manualmente en una planilla.',
+    analysis: 'El punto clave era que cada gasto se pudiera categorizar al cargarlo, para que el dashboard mostrara de inmediato en qué categorías se estaba yendo más plata.',
+    solution: 'Construí una app de control financiero con dashboard interactivo, categorización de gastos, vista diaria de transacciones y exportación de reportes.',
+    validation: 'Probado cargando ingresos y gastos en distintas categorías para confirmar que el dashboard y los reportes exportados reflejan los totales correctos.',
+    result: 'El emprendedor ve en tiempo real cómo está su negocio en plata, categorizado y con reportes listos para exportar.',
+    metric: {
+      value: 'Dashboard en vivo',
+      label: 'ingresos y gastos categorizados y actualizados al día'
+    },
+    repoUrl: 'https://github.com/sofiigentaa/Gestion-de-Ingresos-y-Gastos-para-Emprendedor'
+  },
+  {
+    id: 'case-scraping-inmobiliario',
+    tag: 'Automatización con Python',
+    title: 'Scraper inmobiliario automatizado',
+    problem: 'Monitorear a mano decenas de publicaciones de propiedades en varias localidades es inviable.',
+    initialSituation: 'Revisar manualmente publicaciones de propiedades en un sitio inmobiliario, localidad por localidad, para detectar altas y bajas, es una tarea que no escala con el tiempo de una persona.',
+    analysis: 'El desafío técnico era doble: recorrer muchas páginas sin que el sitio bloquee el proceso, y detectar qué publicaciones se dieron de baja sin perder el historial ya recolectado.',
+    solution: 'Desarrollé un scraper asíncrono en Python (Playwright + BeautifulSoup + Pandas) que recorre propiedades en múltiples localidades, con reintentos automáticos, paginación robusta, detección de bajas por revisita activa de URLs, y consolidación incremental en reportes Excel sin duplicados.',
+    validation: 'Probado con corridas repetidas sobre las mismas localidades para confirmar que no se generan duplicados y que las bajas se detectan correctamente al revisitar las URLs.',
+    result: 'Un reporte en Excel siempre actualizado con las propiedades activas de todas las localidades, sin duplicados y sin revisión manual.',
+    metric: {
+      value: 'Excel sin duplicados',
+      label: 'consolidación incremental automática de todas las localidades'
+    },
+    repoUrl: 'https://github.com/sofiigentaa/Scraping-automatizado-de-sitio-inmobiliario'
   }
 ];
 
