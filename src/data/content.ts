@@ -98,8 +98,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     metric: {
       value: '0 turnos pisados',
       label: 'la detección automática de solapamientos lo bloquea de raíz'
-    },
-    repoUrl: 'https://github.com/sofiigentaa/AgendaMedica'
+    }
   },
   {
     id: 'case-planifica-estudia',
@@ -115,7 +114,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       value: '6 herramientas',
       label: 'integradas en una sola app de estudio'
     },
-    repoUrl: 'https://github.com/sofiigentaa/Planifica-Estudia'
+    siteUrl: 'https://planifica-estudia.onrender.com/'
   },
   {
     id: 'case-candy-eventos',
@@ -130,8 +129,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     metric: {
       value: 'Seguimiento en $ARS',
       label: 'de la seña y el saldo pendiente de cada evento'
-    },
-    repoUrl: 'https://github.com/sofiigentaa/CandySalonDeEventos'
+    }
   },
   {
     id: 'case-sistema-kiosco',
@@ -147,7 +145,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       value: 'Tiempo real',
       label: 'el stock se actualiza al instante en todos los dispositivos'
     },
-    repoUrl: 'https://github.com/sofiigentaa/SistemaKiosco'
+    siteUrl: 'https://sistemakiosco.onrender.com/'
   },
   {
     id: 'case-agenda-odontologica',
@@ -163,23 +161,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       value: 'Todo en un lugar',
       label: 'ficha, obra social, adjuntos y contacto directo del paciente'
     },
-    repoUrl: 'https://github.com/sofiigentaa/AgendaOdontologica'
-  },
-  {
-    id: 'case-gestion-emprendedor',
-    tag: 'Control financiero',
-    title: 'Gestión de Ingresos y Gastos — para emprendedores',
-    problem: 'Entender en qué se va la plata del negocio sin armar una planilla a mano cada mes.',
-    initialSituation: 'Un emprendedor necesitaba ver con claridad sus ingresos y gastos del día a día, categorizados, sin depender de anotar todo manualmente en una planilla.',
-    analysis: 'El punto clave era que cada gasto se pudiera categorizar al cargarlo, para que el dashboard mostrara de inmediato en qué categorías se estaba yendo más plata.',
-    solution: 'Construí una app de control financiero con dashboard interactivo, categorización de gastos, vista diaria de transacciones y exportación de reportes.',
-    validation: 'Probado cargando ingresos y gastos en distintas categorías para confirmar que el dashboard y los reportes exportados reflejan los totales correctos.',
-    result: 'El emprendedor ve en tiempo real cómo está su negocio en plata, categorizado y con reportes listos para exportar.',
-    metric: {
-      value: 'Dashboard en vivo',
-      label: 'ingresos y gastos categorizados y actualizados al día'
-    },
-    repoUrl: 'https://github.com/sofiigentaa/Gestion-de-Ingresos-y-Gastos-para-Emprendedor'
+    siteUrl: 'https://agendaodontologica-cuvt.onrender.com/'
   },
   {
     id: 'case-scraping-inmobiliario',
@@ -194,8 +176,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     metric: {
       value: 'Excel sin duplicados',
       label: 'consolidación incremental automática de todas las localidades'
-    },
-    repoUrl: 'https://github.com/sofiigentaa/Scraping-automatizado-de-sitio-inmobiliario'
+    }
   }
 ];
 
