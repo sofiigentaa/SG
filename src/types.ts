@@ -35,6 +35,7 @@ export interface CaseStudy {
     value: string;
     label: string;
   };
+  repoUrl?: string;
   createdAt?: string;
   isVisible?: boolean;
 }
