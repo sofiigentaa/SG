@@ -1,11 +1,46 @@
-import React from 'react';
-import { ShieldCheck, CheckCircle2, Lock, Award, ArrowRight, FlaskConical, HeartHandshake, DollarSign } from 'lucide-react';
+import React, { useState } from 'react';
+import { ShieldCheck, Lock, Award, ArrowRight, FlaskConical, HeartHandshake, DollarSign, ChevronDown } from 'lucide-react';
 
 interface GuaranteeSectionProps {
   onOpenContact: () => void;
 }
 
+const PILLARS = [
+  {
+    id: 'validation',
+    icon: FlaskConical,
+    color: 'blue',
+    title: 'Validación antes de cobrar',
+    short: 'No pagás hasta verlo funcionar en tu entorno real.',
+    detail: 'Implemento la solución, la pruebo en tu caso concreto y recién ahí la vemos juntos funcionando. Si no resuelve lo que te prometí, no me pagás nada.'
+  },
+  {
+    id: 'support',
+    icon: HeartHandshake,
+    color: 'emerald',
+    title: '30 días de acompañamiento',
+    short: 'Ajustes gratis durante el primer mes.',
+    detail: 'Si algo se desvía o te surge una duda de uso en las primeras 4 semanas, lo reviso y lo ajusto sin ningún costo extra. No te dejo sola con el sistema recién entregado.'
+  },
+  {
+    id: 'price',
+    icon: DollarSign,
+    color: 'indigo',
+    title: 'Precios accesibles en $ argentinos',
+    short: 'Presupuesto cerrado, sin sorpresas.',
+    detail: 'Nada de tarifas en dólares ni horas abiertas. Cerramos un número en pesos argentinos antes de empezar, y ese es el número final.'
+  }
+];
+
+const colorMap: Record<string, { bg: string; ring: string; text: string; shadow: string }> = {
+  blue: { bg: 'bg-blue-600', ring: 'ring-blue-200', text: 'text-blue-700', shadow: 'shadow-blue-200' },
+  emerald: { bg: 'bg-emerald-600', ring: 'ring-emerald-200', text: 'text-emerald-700', shadow: 'shadow-emerald-200' },
+  indigo: { bg: 'bg-indigo-600', ring: 'ring-indigo-200', text: 'text-indigo-700', shadow: 'shadow-indigo-200' }
+};
+
 export const GuaranteeSection: React.FC<GuaranteeSectionProps> = ({ onOpenContact }) => {
+  const [openId, setOpenId] = useState<string>('validation');
+
   return (
     <section className="py-20 bg-white border-b border-slate-200/80">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,56 +69,48 @@ export const GuaranteeSection: React.FC<GuaranteeSectionProps> = ({ onOpenContac
             </div>
           </div>
 
-          <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          {/* Clickable pillars - only the open one shows its full text */}
+          <div className="space-y-3 mb-8">
+            {PILLARS.map((pillar) => {
+              const isOpen = openId === pillar.id;
+              const colors = colorMap[pillar.color];
+              const Icon = pillar.icon;
+              return (
+                <div
+                  key={pillar.id}
+                  className={`rounded-2xl border transition-all overflow-hidden ${
+                    isOpen ? `bg-white border-slate-200 shadow-md ring-1 ${colors.ring}` : 'bg-white/60 border-slate-200/80 hover:bg-white'
+                  }`}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenId(isOpen ? '' : pillar.id)}
+                    className="w-full flex items-center gap-4 p-4 sm:p-5 text-left cursor-pointer"
+                  >
+                    <div className={`w-11 h-11 rounded-xl ${colors.bg} text-white flex items-center justify-center shrink-0 shadow-md ${colors.shadow}`}>
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-sm sm:text-base font-bold text-slate-900">
+                        {pillar.title}
+                      </h4>
+                      {!isOpen && (
+                        <p className="text-xs text-slate-500 truncate">{pillar.short}</p>
+                      )}
+                    </div>
+                    <ChevronDown className={`w-5 h-5 text-slate-400 shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+                  </button>
 
-            {/* Connecting line for desktop */}
-            <div className="hidden md:block absolute top-[52px] left-[16.5%] right-[16.5%] h-0.5 bg-gradient-to-r from-blue-200 via-emerald-200 to-indigo-200" />
-
-            {/* Pillar 1 */}
-            <div className="relative bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
-              <div className="space-y-2.5">
-                <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-200">
-                  <FlaskConical className="w-5 h-5" />
+                  <div className={`grid transition-all duration-300 ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+                    <div className="overflow-hidden">
+                      <p className={`text-sm text-slate-600 leading-relaxed px-5 pb-5 pl-[76px] ${colors.text}`}>
+                        <span className="text-slate-600">{pillar.detail}</span>
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <h4 className="text-base font-bold text-slate-900">
-                  Validación antes de cobrar
-                </h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  No pagás hasta que la solución esté probada y veas con tus propios ojos que resuelve tu problema en tu entorno real.
-                </p>
-              </div>
-            </div>
-
-            {/* Pillar 2 */}
-            <div className="relative bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
-              <div className="space-y-2.5">
-                <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-md shadow-emerald-200">
-                  <HeartHandshake className="w-5 h-5" />
-                </div>
-                <h4 className="text-base font-bold text-slate-900">
-                  30 días de acompañamiento
-                </h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Si algo desvía su comportamiento o tenés dudas de uso durante las primeras 4 semanas, lo ajusto sin ningún costo extra.
-                </p>
-              </div>
-            </div>
-
-            {/* Pillar 3 */}
-            <div className="relative bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
-              <div className="space-y-2.5">
-                <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center shadow-md shadow-indigo-200">
-                  <DollarSign className="w-5 h-5" />
-                </div>
-                <h4 className="text-base font-bold text-slate-900">
-                  Precios accesibles en $ argentinos
-                </h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Presupuesto cerrado en pesos argentinos, sin tarifas en dólares ni sorpresas. Inversión accesible que recuperás en las primeras semanas con el tiempo y las ventas salvadas.
-                </p>
-              </div>
-            </div>
-
+              );
+            })}
           </div>
 
           {/* Core Reassurance Callout */}
