@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { PROBLEMS_DATA } from '../data/content';
-import { AlertOctagon, ArrowDownRight, MessageSquare, AlertTriangle, Copy, Bug, LayoutGrid, HelpCircle } from 'lucide-react';
+import { AlertOctagon, ArrowDownRight, MessageSquare, AlertTriangle, Copy, Bug, LayoutGrid, HelpCircle, Clock } from 'lucide-react';
 
 interface ProblemsSectionProps {
   onSelectProblem: (presetText: string) => void;
 }
 
 export const ProblemsSection: React.FC<ProblemsSectionProps> = ({ onSelectProblem }) => {
+  const [barsIn, setBarsIn] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setBarsIn(true), 150);
+    return () => clearTimeout(t);
+  }, []);
+
   const getIcon = (id: string) => {
     if (id.includes('fear')) return <AlertTriangle className="w-5 h-5 text-red-600" />;
     if (id.includes('manual')) return <Copy className="w-5 h-5 text-amber-600" />;
@@ -33,19 +40,43 @@ export const ProblemsSection: React.FC<ProblemsSectionProps> = ({ onSelectProble
             </p>
           </div>
 
-          <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200/80 aspect-[4/3] lg:aspect-[16/10]">
-            <img
-              src="https://images.unsplash.com/photo-1726649339367-c2577a28881b?auto=format&fit=crop&w=1200&q=80"
-              alt="Persona frente a la computadora frustrada por tareas manuales repetitivas"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/0 to-transparent" />
-            <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-3 flex items-center gap-3 shadow-sm">
-              <div className="text-2xl font-black text-red-600 shrink-0">6</div>
-              <p className="text-xs font-semibold text-slate-800 leading-snug">
-                situaciones más comunes que le hacen perder tiempo y plata a tu negocio.
-              </p>
+          <div className="rounded-2xl bg-slate-900 p-6 sm:p-8 shadow-lg">
+            <div className="flex items-center gap-2 mb-6">
+              <Clock className="w-4 h-4 text-blue-400" />
+              <span className="text-xs font-bold uppercase tracking-wider text-blue-300">Horas semanales en tareas manuales</span>
             </div>
+
+            <div className="space-y-5">
+              <div>
+                <div className="flex justify-between text-xs font-semibold text-slate-300 mb-1.5">
+                  <span>Sin automatizar</span>
+                  <span className="text-red-400 font-bold">15 a 20 hs / sem</span>
+                </div>
+                <div className="w-full h-4 rounded-full bg-slate-800 overflow-hidden">
+                  <div
+                    className="h-full rounded-full bg-red-500 transition-all duration-1000 ease-out"
+                    style={{ width: barsIn ? '90%' : '0%' }}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <div className="flex justify-between text-xs font-semibold text-slate-300 mb-1.5">
+                  <span>Con una automatización de SG</span>
+                  <span className="text-emerald-400 font-bold">1 a 2 hs / sem</span>
+                </div>
+                <div className="w-full h-4 rounded-full bg-slate-800 overflow-hidden">
+                  <div
+                    className="h-full rounded-full bg-emerald-500 transition-all duration-1000 ease-out delay-300"
+                    style={{ width: barsIn ? '10%' : '0%' }}
+                  />
+                </div>
+              </div>
+            </div>
+
+            <p className="text-xs text-slate-400 leading-relaxed mt-6 pt-5 border-t border-slate-800">
+              Rango estimado según el tipo de tarea manual (copiar datos, armar reportes, avisos a clientes). Tu caso puntual se calcula en la consulta inicial, sin costo.
+            </p>
           </div>
         </div>
 
