@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { Terminal, ArrowUp } from 'lucide-react';
 
 export const Footer: React.FC = () => {
@@ -30,14 +31,16 @@ export const Footer: React.FC = () => {
       <div className="flex items-center gap-6 text-[11px] font-bold text-slate-400 uppercase tracking-widest">
         <span>© {new Date().getFullYear()} SG Solutions</span>
 
-        <button
+        <motion.button
           onClick={scrollToTop}
+          whileHover={{ y: -2 }}
+          whileTap={{ scale: 0.9 }}
           className="hover:text-blue-600 transition-colors flex items-center gap-1 p-1 rounded hover:bg-slate-100 cursor-pointer"
           title="Volver arriba"
         >
           <ArrowUp className="w-3.5 h-3.5" />
           <span className="sr-only">Subir</span>
-        </button>
+        </motion.button>
       </div>
 
     </footer>
