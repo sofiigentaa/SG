@@ -52,7 +52,7 @@ export const Hero: React.FC<HeroProps> = ({ onSubmitContact, formPreset = '' }) 
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          
+
           {/* Left Column: Value Proposition & Relief */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -133,11 +133,11 @@ export const Hero: React.FC<HeroProps> = ({ onSubmitContact, formPreset = '' }) 
                 <ShieldCheck className="w-4 h-4 text-blue-600" />
                 <span>Venta garantizada: si no funciona, no pagás</span>
               </div>
-              
+              <a
                 href="#impacto"
                 className="inline-flex items-center gap-1 text-amber-800 hover:text-amber-900 font-bold bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200"
               >
-                <span>Descubrí cuánta plata y tiempo estás perdiendo ↓</span>
+                <span>Descubrí cuánta plata y tiempo estás perdiendo &#8595;</span>
               </a>
             </div>
           </motion.div>
