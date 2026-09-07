@@ -1,7 +1,7 @@
 import { CaseStudy, LeadItem, SolutionItem } from '../types';
 import { CASE_STUDIES, SOLUTIONS_DATA } from '../data/content';
 
-const CASES_STORAGE_KEY = 'sg_solutions_projects_v3';
+const CASES_STORAGE_KEY = 'sg_solutions_projects_v4';
 const LEADS_STORAGE_KEY = 'sg_solutions_leads_v3';
 const SOLUTIONS_STORAGE_KEY = 'sg_solutions_offerings_v3';
 
