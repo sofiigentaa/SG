@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { AutomationShowcaseSection } from './components/AutomationShowcaseSection';
 import { ProblemsSection } from './components/ProblemsSection';
 import { ValueImpactSection } from './components/ValueImpactSection';
 import { ReliefSection } from './components/ReliefSection';
@@ -224,6 +225,9 @@ export default function App() {
           formPreset={formPreset}
           onSubmitContact={handleFormSubmitted}
         />
+
+        {/* Trust bar + animated automation flow */}
+        <AutomationShowcaseSection />
 
         {/* Section 2: Identification of Problems */}
         <ProblemsSection onSelectProblem={handleSelectProblem} />
