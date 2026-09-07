@@ -40,8 +40,8 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({ solutions, o
 
           <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200/80 aspect-[4/3] lg:aspect-[16/10]">
             <img
-              src="https://images.unsplash.com/photo-1563968743333-044cef800494?auto=format&fit=crop&w=1200&q=80"
-              alt="Brazo robótico automatizando tareas repetitivas en una línea de producción"
+              src="https://images.unsplash.com/photo-1759752393975-7ca7b302fcc6?auto=format&fit=crop&w=1200&q=80"
+              alt="Persona automatizando la carga de datos y procesos digitales desde su computadora"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/0 to-transparent" />
