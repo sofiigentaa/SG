@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { CaseStudy } from '../types';
 import { CASE_STUDIES } from '../data/content';
-import { CheckCircle2, FileText, Sparkles, TrendingUp, Github } from 'lucide-react';
+import { CheckCircle2, FileText, TrendingUp, ExternalLink } from 'lucide-react';
 
 interface CasesSectionProps {
   cases?: CaseStudy[];
@@ -25,13 +26,19 @@ export const CasesSection: React.FC<CasesSectionProps> = ({ cases = CASE_STUDIES
   if (!activeCase) return null;
 
   return (
-    <section id="casos" className="py-20 bg-slate-50 border-b border-slate-200/80">
+    <section id="casos" className="py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200/80 text-slate-800 text-xs font-bold tracking-wider uppercase border border-slate-300/80">
-            <FileText className="w-3.5 h-3.5 text-slate-600" />
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-3xl mx-auto text-center space-y-4 mb-14"
+        >
+          <div className="inline-flex items-center gap-2 text-sm font-medium text-slate-600">
+            <FileText className="w-4 h-4" />
             <span>Evidencia real</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
@@ -40,10 +47,16 @@ export const CasesSection: React.FC<CasesSectionProps> = ({ cases = CASE_STUDIES
           <p className="text-base sm:text-lg text-slate-600">
             Casos demostrativos de cómo pasar de un proceso frágil o agotador a una solución probada y medible:
           </p>
-        </div>
+        </motion.div>
 
         {/* Case Selector Tabs */}
-        <div className="flex flex-col md:flex-row gap-3 max-w-4xl mx-auto mb-8 overflow-x-auto pb-2">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col md:flex-row gap-3 max-w-4xl mx-auto mb-8 overflow-x-auto pb-2"
+        >
           {activeCasesList.map((c) => {
             const isActive = c.id === activeCaseId;
             return (
@@ -74,10 +87,18 @@ export const CasesSection: React.FC<CasesSectionProps> = ({ cases = CASE_STUDIES
               </button>
             );
           })}
-        </div>
+        </motion.div>
 
         {/* Active Case Detail Box */}
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-xl p-6 sm:p-10 max-w-4xl mx-auto">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCase.id}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="bg-white rounded-2xl border border-slate-200 shadow-xl p-6 sm:p-10 max-w-4xl mx-auto"
+          >
           
           {/* Top Tag & Title */}
           <div className="border-b border-slate-100 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -88,15 +109,15 @@ export const CasesSection: React.FC<CasesSectionProps> = ({ cases = CASE_STUDIES
               <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3 leading-tight">
                 {activeCase.title}
               </h3>
-              {activeCase.repoUrl && (
+              {activeCase.siteUrl && (
                 <a
-                  href={activeCase.repoUrl}
+                  href={activeCase.siteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 mt-2 text-xs font-bold text-slate-500 hover:text-blue-600 transition-colors"
                 >
-                  <Github className="w-3.5 h-3.5" />
-                  <span>Ver el proyecto en GitHub</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                  <span>Ver el sitio web</span>
                 </a>
               )}
             </div>
@@ -174,7 +195,8 @@ export const CasesSection: React.FC<CasesSectionProps> = ({ cases = CASE_STUDIES
 
           </div>
 
-        </div>
+        </motion.div>
+        </AnimatePresence>
 
       </div>
     </section>
