@@ -106,7 +106,7 @@ export const CasesSection: React.FC<CasesSectionProps> = ({ cases = CASE_STUDIES
               <span className="text-xs font-bold uppercase tracking-widest text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
                 {activeCase.tag}
               </span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3 leading-tight">
+              <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mt-3 leading-snug">
                 {activeCase.title}
               </h3>
               {activeCase.siteUrl && (
