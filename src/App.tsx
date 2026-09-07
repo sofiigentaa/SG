@@ -24,7 +24,7 @@ import {
   getStoredSolutions,
   saveStoredSolutions
 } from './utils/storage';
-import { CheckCircle2, MessageCircle } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 // ─────────────────────────────────────────────────────────────
 // Acceso oculto al panel de administración. No hay ningún botón
@@ -268,17 +268,6 @@ export default function App() {
           onFormSubmitted={handleFormSubmitted}
         />
       </main>
-
-      {/* Floating Quick Action Button for Mobile */}
-      <div className="md:hidden fixed bottom-5 left-4 right-4 z-40">
-        <button
-          onClick={() => handleOpenContact()}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-5 rounded-xl shadow-xl flex items-center justify-center gap-2 text-sm shadow-blue-500/30 cursor-pointer"
-        >
-          <MessageCircle className="w-4 h-4" />
-          <span>Contame tu problema</span>
-        </button>
-      </div>
 
       {/* Footer with Admin Trigger */}
       <Footer />
