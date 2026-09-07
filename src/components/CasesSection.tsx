@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { CaseStudy } from '../types';
 import { CASE_STUDIES } from '../data/content';
-import { CheckCircle2, FileText, Sparkles } from 'lucide-react';
+import { CheckCircle2, FileText, Sparkles, TrendingUp, Github } from 'lucide-react';
 
 interface CasesSectionProps {
   cases?: CaseStudy[];
@@ -51,17 +51,25 @@ export const CasesSection: React.FC<CasesSectionProps> = ({ cases = CASE_STUDIES
                 key={c.id}
                 type="button"
                 onClick={() => setActiveCaseId(c.id)}
-                className={`flex-1 min-w-[200px] text-left p-4 rounded-xl border transition-all cursor-pointer ${
+                className={`flex-1 min-w-[200px] text-left p-4 rounded-xl border transition-all cursor-pointer flex items-start gap-3 ${
                   isActive
                     ? 'bg-white border-blue-500 shadow-md ring-2 ring-blue-100 text-slate-900'
                     : 'bg-white/60 border-slate-200 text-slate-600 hover:bg-white hover:text-slate-900'
                 }`}
               >
-                <div className="text-[11px] font-bold uppercase tracking-wider text-blue-600 mb-1">
-                  {c.tag}
+                <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${isActive ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-500'}`}>
+                  <TrendingUp className="w-4 h-4" />
                 </div>
-                <div className="text-sm font-bold line-clamp-2 leading-snug">
-                  {c.title}
+                <div className="min-w-0">
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-blue-600 mb-1">
+                    {c.tag}
+                  </div>
+                  <div className="text-sm font-bold line-clamp-2 leading-snug">
+                    {c.title}
+                  </div>
+                  <div className={`text-xs font-black mt-1 ${isActive ? 'text-blue-600' : 'text-slate-400'}`}>
+                    {c.metric.value}
+                  </div>
                 </div>
               </button>
             );
@@ -80,6 +88,17 @@ export const CasesSection: React.FC<CasesSectionProps> = ({ cases = CASE_STUDIES
               <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3 leading-tight">
                 {activeCase.title}
               </h3>
+              {activeCase.repoUrl && (
+                
+                  href={activeCase.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 mt-2 text-xs font-bold text-slate-500 hover:text-blue-600 transition-colors"
+                >
+                  <Github className="w-3.5 h-3.5" />
+                  <span>Ver el proyecto en GitHub</span>
+                </a>
+              )}
             </div>
 
             {/* Big Metric Box */}
