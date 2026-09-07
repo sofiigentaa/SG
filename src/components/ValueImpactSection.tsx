@@ -118,8 +118,15 @@ export const ValueImpactSection: React.FC<ValueImpactSectionProps> = ({ onOpenCo
         </div>
 
         {/* Revelatory Bottom Banner with direct CTA */}
-        <div className="bg-slate-900 text-white rounded-3xl p-8 sm:p-10 shadow-xl flex flex-col lg:flex-row items-center justify-between gap-6">
-          <div className="space-y-2 text-center lg:text-left max-w-2xl">
+        <div className="relative overflow-hidden rounded-3xl shadow-xl flex flex-col lg:flex-row items-center justify-between gap-6 p-8 sm:p-10">
+          <img
+            src="https://images.unsplash.com/photo-1491975474562-1f4e30bc9468?auto=format&fit=crop&w=1600&q=80"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-slate-900/88" />
+          <div className="relative space-y-2 text-center lg:text-left max-w-2xl">
             <div className="inline-flex items-center gap-2 text-emerald-400 font-bold text-xs uppercase tracking-wider">
               <ShieldCheck className="w-4 h-4" />
               <span>No esperes a que sea más costoso</span>
@@ -135,7 +142,7 @@ export const ValueImpactSection: React.FC<ValueImpactSectionProps> = ({ onOpenCo
           <button
             type="button"
             onClick={() => onOpenContactWithPreset('')}
-            className="shrink-0 bg-blue-600 hover:bg-blue-500 text-white font-extrabold py-4 px-8 rounded-xl shadow-lg shadow-blue-500/30 transition-all flex items-center gap-2 uppercase tracking-wider text-xs cursor-pointer active:scale-98"
+            className="relative shrink-0 bg-blue-600 hover:bg-blue-500 text-white font-extrabold py-4 px-8 rounded-xl shadow-lg shadow-blue-500/30 transition-all flex items-center gap-2 uppercase tracking-wider text-xs cursor-pointer active:scale-98"
           >
             <span>Quiero ganar tiempo y plata</span>
             <ArrowRight className="w-4 h-4" />
