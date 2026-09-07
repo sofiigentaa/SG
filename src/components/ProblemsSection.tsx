@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'motion/react';
 import { PROBLEMS_DATA } from '../data/content';
 import { AlertOctagon, ArrowDownRight, MessageSquare, AlertTriangle, Copy, Bug, LayoutGrid, HelpCircle, Clock } from 'lucide-react';
 
@@ -27,9 +28,15 @@ export const ProblemsSection: React.FC<ProblemsSectionProps> = ({ onSelectProble
         
         {/* Section Header with image */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center mb-14">
-          <div className="text-center lg:text-left space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold tracking-wider uppercase border border-slate-200">
-              <AlertOctagon className="w-3.5 h-3.5 text-slate-500" />
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center lg:text-left space-y-4"
+          >
+            <div className="inline-flex items-center gap-2 text-sm font-medium text-slate-500">
+              <AlertOctagon className="w-4 h-4" />
               <span>Identificación del problema</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
@@ -38,9 +45,15 @@ export const ProblemsSection: React.FC<ProblemsSectionProps> = ({ onSelectProble
             <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
               La mayoría de las personas y negocios que me consultan llegan lidiando con alguno de estos dolores cotidianos:
             </p>
-          </div>
+          </motion.div>
 
-          <div className="rounded-2xl bg-slate-900 p-6 sm:p-8 shadow-lg">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="rounded-3xl bg-slate-900 p-6 sm:p-8 shadow-lg"
+          >
             <div className="flex items-center gap-2 mb-6">
               <Clock className="w-4 h-4 text-blue-400" />
               <span className="text-xs font-bold uppercase tracking-wider text-blue-300">Horas semanales en tareas manuales</span>
@@ -77,12 +90,12 @@ export const ProblemsSection: React.FC<ProblemsSectionProps> = ({ onSelectProble
             <p className="text-xs text-slate-400 leading-relaxed mt-6 pt-5 border-t border-slate-800">
               Rango estimado según el tipo de tarea manual (copiar datos, armar reportes, avisos a clientes). Tu caso puntual se calcula en la consulta inicial, sin costo.
             </p>
-          </div>
+          </motion.div>
         </div>
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PROBLEMS_DATA.map((item) => {
+          {PROBLEMS_DATA.map((item, index) => {
             const badgeClasses = {
               red: 'bg-red-50 text-red-700 border-red-200',
               amber: 'bg-amber-50 text-amber-700 border-amber-200',
@@ -100,9 +113,13 @@ export const ProblemsSection: React.FC<ProblemsSectionProps> = ({ onSelectProble
             }[item.badgeColor];
 
             return (
-              <div
+              <motion.div
                 key={item.id}
-                className="flex flex-col justify-between p-6 rounded-xl bg-slate-50 border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all group"
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.5, delay: (index % 3) * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                className="flex flex-col justify-between p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 hover:shadow-md hover:-translate-y-1 transition-all group"
               >
                 <div className="space-y-3">
                   <div className="flex items-start justify-between gap-2">
@@ -137,12 +154,18 @@ export const ProblemsSection: React.FC<ProblemsSectionProps> = ({ onSelectProble
                     <ArrowDownRight className="w-4 h-4" />
                   </button>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
 
           {/* 6th Card: Empathetic Wildcard */}
-          <div className="flex flex-col justify-between p-6 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 hover:shadow-md transition-all">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.5, delay: 0.16, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col justify-between p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 hover:shadow-md hover:-translate-y-1 transition-all"
+          >
             <div className="space-y-3">
               <span className="inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full border bg-blue-100/70 text-blue-800 border-blue-200 uppercase tracking-wider">
                 Caso especial
@@ -164,7 +187,7 @@ export const ProblemsSection: React.FC<ProblemsSectionProps> = ({ onSelectProble
                 Contame tu caso puntual →
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
 
       </div>
