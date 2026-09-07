@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, CheckCircle2, Lock, Award, ArrowRight } from 'lucide-react';
+import { ShieldCheck, CheckCircle2, Lock, Award, ArrowRight, FlaskConical, HeartHandshake, DollarSign } from 'lucide-react';
 
 interface GuaranteeSectionProps {
   onOpenContact: () => void;
@@ -34,13 +34,16 @@ export const GuaranteeSection: React.FC<GuaranteeSectionProps> = ({ onOpenContac
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            
+          <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+
+            {/* Connecting line for desktop */}
+            <div className="hidden md:block absolute top-[52px] left-[16.5%] right-[16.5%] h-0.5 bg-gradient-to-r from-blue-200 via-emerald-200 to-indigo-200" />
+
             {/* Pillar 1 */}
-            <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
+            <div className="relative bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
               <div className="space-y-2.5">
-                <div className="w-8 h-8 rounded-lg bg-blue-100 text-blue-800 flex items-center justify-center text-sm font-bold">
-                  1
+                <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-200">
+                  <FlaskConical className="w-5 h-5" />
                 </div>
                 <h4 className="text-base font-bold text-slate-900">
                   Validación antes de cobrar
@@ -52,10 +55,10 @@ export const GuaranteeSection: React.FC<GuaranteeSectionProps> = ({ onOpenContac
             </div>
 
             {/* Pillar 2 */}
-            <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
+            <div className="relative bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
               <div className="space-y-2.5">
-                <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center text-sm font-bold">
-                  2
+                <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-md shadow-emerald-200">
+                  <HeartHandshake className="w-5 h-5" />
                 </div>
                 <h4 className="text-base font-bold text-slate-900">
                   30 días de acompañamiento
@@ -67,10 +70,10 @@ export const GuaranteeSection: React.FC<GuaranteeSectionProps> = ({ onOpenContac
             </div>
 
             {/* Pillar 3 */}
-            <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
+            <div className="relative bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
               <div className="space-y-2.5">
-                <div className="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-800 flex items-center justify-center text-sm font-bold">
-                  3
+                <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center shadow-md shadow-indigo-200">
+                  <DollarSign className="w-5 h-5" />
                 </div>
                 <h4 className="text-base font-bold text-slate-900">
                   Precios accesibles en $ argentinos
