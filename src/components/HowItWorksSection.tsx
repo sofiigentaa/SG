@@ -14,18 +14,29 @@ export const HowItWorksSection: React.FC = () => {
     <section id="como-funciona" className="py-20 bg-white border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold tracking-wider uppercase border border-slate-200">
-            <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-            <span>Transparencia total</span>
+        {/* Header with image */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center mb-16">
+          <div className="text-center lg:text-left space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold tracking-wider uppercase border border-slate-200">
+              <Sparkles className="w-3.5 h-3.5 text-blue-600" />
+              <span>Transparencia total</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+              Un proceso simple y predecible
+            </h2>
+            <p className="text-base sm:text-lg text-slate-600">
+              Sin presupuestos misteriosos ni pasos burocráticos. Así pasamos de un dolor de cabeza a un sistema que funciona:
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
-            Un proceso simple y predecible
-          </h2>
-          <p className="text-base sm:text-lg text-slate-600">
-            Sin presupuestos misteriosos ni pasos burocráticos. Así pasamos de un dolor de cabeza a un sistema que funciona:
-          </p>
+
+          <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200/80 aspect-[4/3] lg:aspect-[16/10]">
+            <img
+              src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1200&q=80"
+              alt="Planificando paso a paso la solución para un proceso digital"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-slate-900/0 to-transparent" />
+          </div>
         </div>
 
         {/* Steps Grid */}
