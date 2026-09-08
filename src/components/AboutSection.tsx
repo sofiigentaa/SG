@@ -49,7 +49,7 @@ export const AboutSection: React.FC = () => {
             </h2>
 
             <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-              Trabajo en testing, automatización y desarrollo. A lo largo de mi trabajo vi repetirse el mismo patrón una y otra vez: personas y equipos sufriendo con sistemas que fallan, perdiendo horas valiosas en tareas mecánicas o sintiendo que la tecnología es un obstáculo en vez de una ayuda.
+              Trabajo en análisis funcional, desarrollo y control de calidad. A lo largo de mi trabajo vi repetirse el mismo patrón una y otra vez: personas y equipos sufriendo con sistemas que fallan, perdiendo horas valiosas en tareas mecánicas o sintiendo que la tecnología es un obstáculo en vez de una ayuda.
             </p>
 
             <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
