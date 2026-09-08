@@ -88,13 +88,13 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'case-agenda-medica',
     tag: 'Gestión de turnos',
-    title: 'Agenda Médica & Turnos — Estética Láser Rosario',
+    title: 'Agenda de Turnos: Estética Láser Rosario',
     problem: 'Coordinar turnos de tratamientos con duraciones distintas sin que se superpongan.',
-    initialSituation: 'Un centro de estética láser necesitaba una agenda propia: cada tratamiento tiene una duración diferente, y coordinarlos a mano o en una agenda genérica es fácil que termine en horarios pisados.',
-    analysis: 'El sistema tenía que conocer la duración real de cada tratamiento y bloquear automáticamente los horarios que ya estuvieran ocupados, sin depender de que alguien lo revise a ojo.',
-    solution: 'Desarrollé un sistema con duraciones parametrizadas por tratamiento, detección automática de solapamientos, impresión de la agenda diaria, plantillas de WhatsApp personalizadas para confirmar turnos y exportación a Excel/CSV.',
-    validation: 'Probado con turnos de distintas duraciones cargados en simultáneo para confirmar que el sistema bloquea cualquier horario que se pise con otro ya reservado.',
-    result: 'Una agenda diaria clara, con confirmaciones de turno por WhatsApp en un clic y sin posibilidad de cargar dos turnos que se superpongan.',
+    initialSituation: 'Tenían la agenda en Excel y necesitaban automatizar el uso de WhatsApp, sobre todo el envío de recordatorios a cada paciente.',
+    analysis: 'Se analizó el problema y se vio viable crear una web que automatizara el envío de WhatsApp con los recordatorios ya redactados, agilizando el proceso de escribirle a cada paciente. También debía conocer la duración real de cada tratamiento para bloquear automáticamente los horarios ocupados, permitir bloquear turnos o crear feriados para no asignar turnos esos días, y generar backups para el día siguiente por si el sistema quedaba caído.',
+    solution: 'Desarrollé un sistema con duraciones parametrizadas por tratamiento, detección automática de solapamientos, bloqueo de turnos y feriados, generación de backups diarios, impresión de la agenda diaria, plantillas de WhatsApp personalizadas para confirmar turnos y exportación a Excel/CSV.',
+    validation: 'Se hicieron pruebas rigurosas en las distintas funcionalidades: se probó con turnos de distintas duraciones cargados en simultáneo para confirmar que el sistema bloquea cualquier horario que se pise con otro ya reservado.',
+    result: 'Una agenda diaria clara, con confirmaciones de turno por WhatsApp en un clic.',
     metric: {
       value: '0 turnos pisados',
       label: 'la detección automática de solapamientos lo bloquea de raíz'
@@ -106,7 +106,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: 'Planifica & Estudia — Asistente universitario',
     problem: 'Organizar cursada, exámenes y estudio sin usar cinco apps distintas.',
     initialSituation: 'Un estudiante universitario necesitaba centralizar la organización de su cursada en un solo lugar, en vez de repartirla entre calendario, apuntes sueltos y planillas.',
-    analysis: 'El foco estaba en cubrir todo el ciclo de estudio: planificar, repasar, practicar y llegar a un parcial con una nota estimada realista.',
+    analysis: 'El foco estaba en cubrir todo el ciclo de estudio: planificar, repasar y practicar.',
     solution: 'Construí una suite con sincronización a Google Calendar, generador de resúmenes y quizzes, simulador de parciales con escala de 1 a 10, fichas de emergencia de una página, un tutor con método Feynman y una calculadora de notas, más un modo de enfoque Pomodoro.',
     validation: 'Probado generando resúmenes y quizzes sobre distintos materiales de estudio, y verificando que el cálculo de notas y el simulador de parciales dieran resultados consistentes.',
     result: 'Toda la organización académica —calendario, resúmenes, repaso y cálculo de notas— en una sola herramienta.',
@@ -121,11 +121,11 @@ export const CASE_STUDIES: CaseStudy[] = [
     tag: 'Gestión de eventos',
     title: 'Candy Salón de Eventos — Gestión y seguimiento',
     problem: 'Llevar el control de reservas, señas y saldos de cada evento sin perder el hilo.',
-    initialSituation: 'Un salón de eventos necesitaba dejar de depender de anotaciones sueltas para saber qué fecha estaba reservada, cuánto se había señado y cuánto saldo quedaba pendiente por cobrar.',
+    initialSituation: 'Un salón de eventos necesitaba dejar de depender de anotaciones sueltas de los registros: hacía falta más organización de los gastos y los ingresos, y gastos fijos para saber mes a mes cuál es el flujo.',
     analysis: 'El punto crítico era tener, de un vistazo, el estado de cada evento: fecha, seña abonada y saldo restante en pesos argentinos, con recordatorios para no perder ningún pago.',
     solution: 'Desarrollé un sistema de gestión y seguimiento de eventos con registro de fechas, señas abonadas, saldos en $ARS y recordatorios.',
     validation: 'Probado cargando eventos con señas parciales y totales para confirmar que el saldo pendiente se calcula y se actualiza correctamente en cada caso.',
-    result: 'El salón puede ver de un vistazo qué eventos tiene reservados, qué se cobró y qué falta cobrar de cada uno.',
+    result: 'El salón puede ver de un vistazo qué eventos tiene reservados, qué se cobró y qué falta cobrar de cada uno, con mayor control.',
     metric: {
       value: 'Seguimiento en $ARS',
       label: 'de la seña y el saldo pendiente de cada evento'
@@ -140,12 +140,13 @@ export const CASE_STUDIES: CaseStudy[] = [
     analysis: 'El sistema tenía que funcionar en tiempo real entre varios dispositivos: si algo se vende en la caja, el stock se tiene que actualizar al instante también en la tablet del depósito.',
     solution: 'Construí un sistema de punto de venta (POS), control de inventario y vencimientos con liquidación automática, arqueo de caja, historial de ventas y reportes de márgenes, con sincronización en tiempo real entre dispositivos (Supabase).',
     validation: 'Probado vendiendo desde dos dispositivos en simultáneo para confirmar que el stock se descuenta y se sincroniza correctamente en todos al instante.',
-    result: 'Ventas rápidas desde el navegador, sin instalar nada, con el stock y la caja siempre al día en todos los dispositivos conectados.',
+    result: 'Ventas rápidas desde el navegador, sin instalar nada, con el stock y la caja siempre al día en todos los dispositivos conectados. Control de stock y seguimiento de productos.',
     metric: {
       value: 'Tiempo real',
-      label: 'el stock se actualiza al instante en todos los dispositivos'
+      label: 'control de stock actualizado'
     },
-    siteUrl: 'https://sistemakiosco.onrender.com/'
+    siteUrl: 'https://sistemakiosco.onrender.com/',
+    repoUrl: 'https://github.com/sofiigentaa/SistemaKiosco'
   },
   {
     id: 'case-agenda-odontologica',
@@ -153,7 +154,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: 'Consultorio Marie — Agenda odontológica',
     problem: 'Centralizar los datos de cada paciente: obra social, contacto y seguimiento.',
     initialSituation: 'Un consultorio odontológico necesitaba una ficha por paciente que centralizara la obra social, los datos de contacto y el seguimiento de llamados, en vez de tenerlo repartido entre agenda y WhatsApp.',
-    analysis: 'El foco estaba en el acceso rápido: desde la ficha del paciente, poder llamarlo, escribirle por WhatsApp o mandarle un correo sin buscar el número en otro lado.',
+    analysis: 'El foco estaba en la mayor organización de pacientes, turnos y finanzas, y en automatizar los recordatorios.',
     solution: 'Desarrollé un sistema de gestión integral de contactos con obra social, recordatorios de llamadas, adjuntos y accesos directos a WhatsApp, correo y compartir.',
     validation: 'Probado cargando pacientes con distintas obras sociales y adjuntos para confirmar que la ficha y los accesos directos funcionan correctamente en cada caso.',
     result: 'Toda la información de cada paciente —obra social, contacto y adjuntos— accesible desde una sola ficha, con contacto directo en un clic.',
@@ -161,7 +162,8 @@ export const CASE_STUDIES: CaseStudy[] = [
       value: 'Todo en un lugar',
       label: 'ficha, obra social, adjuntos y contacto directo del paciente'
     },
-    siteUrl: 'https://agendaodontologica-cuvt.onrender.com/'
+    siteUrl: 'https://agendaodontologica-cuvt.onrender.com/',
+    repoUrl: 'https://github.com/sofiigentaa/AgendaOdontologica'
   },
   {
     id: 'case-scraping-inmobiliario',
@@ -169,14 +171,15 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: 'Scraper inmobiliario automatizado',
     problem: 'Monitorear a mano decenas de publicaciones de propiedades en varias localidades es inviable.',
     initialSituation: 'Revisar manualmente publicaciones de propiedades en un sitio inmobiliario, localidad por localidad, para detectar altas y bajas, es una tarea que no escala con el tiempo de una persona.',
-    analysis: 'El desafío técnico era doble: recorrer muchas páginas sin que el sitio bloquee el proceso, y detectar qué publicaciones se dieron de baja sin perder el historial ya recolectado.',
+    analysis: 'El desafío técnico era agilizar el proceso de revisar qué publicaciones se dieron de baja sin perder el historial ya recolectado, y agilizar el tiempo de entrar publicación por publicación.',
     solution: 'Desarrollé un scraper asíncrono en Python (Playwright + BeautifulSoup + Pandas) que recorre propiedades en múltiples localidades, con reintentos automáticos, paginación robusta, detección de bajas por revisita activa de URLs, y consolidación incremental en reportes Excel sin duplicados.',
     validation: 'Probado con corridas repetidas sobre las mismas localidades para confirmar que no se generan duplicados y que las bajas se detectan correctamente al revisitar las URLs.',
-    result: 'Un reporte en Excel siempre actualizado con las propiedades activas de todas las localidades, sin duplicados y sin revisión manual.',
+    result: 'Un reporte en Excel siempre actualizado con las propiedades activas de todas las localidades, sin revisión manual y con mayor agilización de tiempo.',
     metric: {
       value: 'Excel sin duplicados',
       label: 'consolidación incremental automática de todas las localidades'
-    }
+    },
+    repoUrl: 'https://github.com/sofiigentaa/Scraping-automatizado-de-sitio-inmobiliario'
   }
 ];
 
