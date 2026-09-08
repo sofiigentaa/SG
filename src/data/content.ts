@@ -146,7 +146,6 @@ export const CASE_STUDIES: CaseStudy[] = [
       label: 'control de stock actualizado'
     },
     siteUrl: 'https://sistemakiosco.onrender.com/',
-    repoUrl: 'https://github.com/sofiigentaa/SistemaKiosco'
   },
   {
     id: 'case-agenda-odontologica',
@@ -163,7 +162,6 @@ export const CASE_STUDIES: CaseStudy[] = [
       label: 'ficha, obra social, adjuntos y contacto directo del paciente'
     },
     siteUrl: 'https://agendaodontologica-cuvt.onrender.com/',
-    repoUrl: 'https://github.com/sofiigentaa/AgendaOdontologica'
   },
   {
     id: 'case-scraping-inmobiliario',
@@ -179,7 +177,6 @@ export const CASE_STUDIES: CaseStudy[] = [
       value: 'Excel sin duplicados',
       label: 'consolidación incremental automática de todas las localidades'
     },
-    repoUrl: 'https://github.com/sofiigentaa/Scraping-automatizado-de-sitio-inmobiliario'
   }
 ];
 
