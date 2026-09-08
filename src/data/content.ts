@@ -1,5 +1,5 @@
 import { ProblemItem, SolutionItem, CaseStudy } from '../types';
-
+ 
 export const PROBLEMS_DATA: ProblemItem[] = [
   {
     id: 'fear-of-breaking',
@@ -47,7 +47,7 @@ export const PROBLEMS_DATA: ProblemItem[] = [
     presetText: 'Tengo un problema concreto en mi negocio y busco una solución a precio accesible en pesos argentinos.'
   }
 ];
-
+ 
 export const SOLUTIONS_DATA: SolutionItem[] = [
   {
     id: 'automation',
@@ -83,7 +83,7 @@ export const SOLUTIONS_DATA: SolutionItem[] = [
     timeSaving: 'Respuesta en menos de 24 hs'
   }
 ];
-
+ 
 export const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'case-agenda-medica',
@@ -98,18 +98,19 @@ export const CASE_STUDIES: CaseStudy[] = [
     metric: {
       value: '0 turnos pisados',
       label: 'la detección automática de solapamientos lo bloquea de raíz'
-    }
+    },
+    siteUrl: 'https://agendamedica-uzzw.onrender.com/'
   },
   {
     id: 'case-planifica-estudia',
     tag: 'Suite académica',
     title: 'Planifica & Estudia — Asistente universitario',
     problem: 'Organizar cursada, exámenes y estudio sin usar cinco apps distintas.',
-    initialSituation: 'Un estudiante universitario necesitaba centralizar la organización de su cursada en un solo lugar, en vez de repartirla entre calendario, apuntes sueltos y planillas.',
+    initialSituation: 'Un estudiante universitario necesitaba centralizar toda la organización de su cursada en un solo lugar.',
     analysis: 'El foco estaba en cubrir todo el ciclo de estudio: planificar, repasar y practicar.',
-    solution: 'Construí una suite con sincronización a Google Calendar, generador de resúmenes y quizzes, simulador de parciales con escala de 1 a 10, fichas de emergencia de una página, un tutor con método Feynman y una calculadora de notas, más un modo de enfoque Pomodoro.',
-    validation: 'Probado generando resúmenes y quizzes sobre distintos materiales de estudio, y verificando que el cálculo de notas y el simulador de parciales dieran resultados consistentes.',
-    result: 'Toda la organización académica —calendario, resúmenes, repaso y cálculo de notas— en una sola herramienta.',
+    solution: 'Construí una suite con sincronización a Google Calendar, generador de resúmenes y quizzes, simulador de parciales, fichas de emergencia y calculadora de notas.',
+    validation: 'Probado generando resúmenes y quizzes, y verificando que el cálculo de notas y el simulador de parciales dieran resultados consistentes.',
+    result: 'Toda la organización académica en una sola herramienta.',
     metric: {
       value: '6 herramientas',
       label: 'integradas en una sola app de estudio'
@@ -129,7 +130,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     metric: {
       value: 'Seguimiento en $ARS',
       label: 'de la seña y el saldo pendiente de cada evento'
-    }
+    },
+    siteUrl: 'https://candysalondeeventos-ftg4.onrender.com/'
   },
   {
     id: 'case-sistema-kiosco',
@@ -146,6 +148,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       label: 'control de stock actualizado'
     },
     siteUrl: 'https://sistemakiosco.onrender.com/',
+    repoUrl: 'https://github.com/sofiigentaa/SistemaKiosco'
   },
   {
     id: 'case-agenda-odontologica',
@@ -162,6 +165,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       label: 'ficha, obra social, adjuntos y contacto directo del paciente'
     },
     siteUrl: 'https://agendaodontologica-cuvt.onrender.com/',
+    repoUrl: 'https://github.com/sofiigentaa/AgendaOdontologica'
   },
   {
     id: 'case-scraping-inmobiliario',
@@ -177,9 +181,10 @@ export const CASE_STUDIES: CaseStudy[] = [
       value: 'Excel sin duplicados',
       label: 'consolidación incremental automática de todas las localidades'
     },
+    repoUrl: 'https://github.com/sofiigentaa/Scraping-automatizado-de-sitio-inmobiliario'
   }
 ];
-
+ 
 export const WORK_STEPS = [
   {
     step: '01',
@@ -202,3 +207,4 @@ export const WORK_STEPS = [
     description: 'Implemento la automatización o corrección, la pruebo en casos reales y te acompaño 30 días. Si no funciona como acordamos, no pagás.'
   }
 ];
+ 
